@@ -9,7 +9,12 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
-        HelloWorld helloWorld = (HelloWorld) ctx.getBean("helloWorld");
-        helloWorld.sayHello();
+        //By Constructor
+        InjectedByConstructorService injectedByConstructorService = (InjectedByConstructorService) ctx.getBean("injectedByConstructorService");
+        injectedByConstructorService.getMessage();
+
+        //By Setter
+        SetterBasedInjectionService setterBasedInjectionService = (SetterBasedInjectionService) ctx.getBean("setterBasedInjectionService");
+        setterBasedInjectionService.getMessage();
     }
 }
